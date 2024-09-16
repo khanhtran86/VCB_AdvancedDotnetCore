@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+    <section>
+        <h4>Sử dụng dịch vụ</h4>
+        <hr />
+        <form id="external-account" action="./ExternalLogin" method="post" class="form-horizontal">
+            <div>
+                <p>
+                    @foreach (var provider in ViewBag.ExternalLogins)
+                    {
+                        <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+                    }
+                </p>
+            </div>
+        </form>
+    </section>
+</div>
